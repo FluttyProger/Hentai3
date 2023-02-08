@@ -14,7 +14,7 @@ RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
 WORKDIR /app/stable-diffusion-webui
 
 
-RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/FluttyProger/HentaiModelMix/resolve/main/HentaiModelMix.safetensors'
+RUN wget -O models/Stable-diffusion/model.ckpt 'https://huggingface.co/FluttyProger/HentaiModelMix/resolve/main/UltraModelHentai.ckpt'
 RUN echo 2
 RUN wget -O models/Stable-diffusion/model.vae.pt 'https://huggingface.co/iZELX1/Grapefruit/resolve/main/Grapefruit.vae.pt'
 RUN echo 2
@@ -31,4 +31,4 @@ ADD script.py extensions/banana/scripts/banana.py
 ADD app.py app.py
 ADD server.py server.py
 
-CMD ["python", "server.py", "--xformers", "--disable-safe-unpickle", "--no-hashing", "--listen", "--port", "8000"]
+CMD ["python", "server.py", "--xformers", "--disable-safe-unpickle", "--lowram", "--no-hashing", "--listen", "--port", "8000"]
