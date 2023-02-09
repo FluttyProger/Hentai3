@@ -15,6 +15,8 @@ WORKDIR /app/stable-diffusion-webui
 
 RUN wget -O models/Stable-diffusion/model.ckpt 'https://huggingface.co/FluttyProger/HentaiModelMix/resolve/main/UltraModelHentai.ckpt'
 RUN echo 2
+RUN wget -O models/Stable-diffusion/model.vae.pt 'https://huggingface.co/iZELX1/Grapefruit/resolve/main/Grapefruit.vae.pt'
+RUN echo 2
 ADD prepare.py .
 RUN python prepare.py --skip-torch-cuda-test --xformers --reinstall-torch --reinstall-xformers
 
