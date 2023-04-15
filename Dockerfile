@@ -24,6 +24,8 @@ ADD download.py download.py
 RUN python download.py --use-cpu=all
 
 RUN pip install dill
+RUN pip install sanic==22.6.2
+RUN pip install websockets==10.0
 
 RUN mkdir -p extensions/banana/scripts
 ADD script.py extensions/banana/scripts/banana.py
